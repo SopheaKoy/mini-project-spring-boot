@@ -1,0 +1,6 @@
+<section xmlns:th="http://www.thymeleaf.org">
+  <div class="list-group">
+    <h2>Popular Categories</h2>
+    <a th:each="category :${categories}" th:object="${categories}" type="button" class="list-group-item list-group-item-action text-center mt-3 p-3 fw-bold"></a>
+  </div>
+</section>

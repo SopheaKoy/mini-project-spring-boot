@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layouts}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <main layout:fragment="main-content">
+        <div class="album py-5 bg-body-tertiary">
+            <div class="container">
+                <h1>All User: 5</h1>
+                <th:block th:replace="~{fragment/card ::card-AllUser}"></th:block>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

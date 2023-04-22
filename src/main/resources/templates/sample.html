@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section xmlns:th="http://www.thymeleaf.org">
+    <!-- card readonly ~ start -->
+    <a th:fragment="card-readonly(uuid, title, thumbnail, author)"
+       th:href="@{/article/{uuid}(uuid=${uuid})}" class="text-decoration-none">
+        <div class="card shadow-sm">
+            <img th:src="@{http://localhost:1010/files/{thumbnail}(thumbnail=${thumbnail})}" alt="News Coffee" class="bd-placeholder-img card-img-top">
+            <div class="card-body">
+                <p th:text="${title}" class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small th:text="${author}" class="text-body-secondary"></small>
+                </div>
+            </div>
+        </div>
+    </a>
+    <!-- card readonly ~ end -->
+
+    <!-- card action ~ start -->
+    <div th:fragment="card-action(uuid, title, thumbnail, author)" class="card shadow-sm">
+        <img th:src="@{http://localhost:1010/files/{thumbnail}(thumbnail=${thumbnail})}" alt="News Coffee" class="bd-placeholder-img card-img-top">
+        <div class="card-body">
+            <p th:text="${title}" class="card-text"></p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="#" type="button" class="btn btn-sm btn-outline-success">View</a>
+                    <a th:href="@{/article/edit/{uuid}(uuid=${uuid})}" type="button" class="btn btn-sm btn-outline-primary">Edit</a>
+                    <a th:href="@{/article/delete/{uuid}(uuid=${uuid})}" type="button" class="btn btn-sm btn-outline-danger">Delete</a>
+                </div>
+                <small th:text="${author}" class="text-body-secondary"></small>
+            </div>
+        </div>
+    </div>
+    <!-- card action ~ end -->
+    <div class="card shadow-sm">
+        <img src="/img/default/relax.jpg" class="bd-placeholder-img card-img-top" alt="new Coffee">
+        <div class="m-2 d-flex align-items-center">
+            <img src="/img/default/monkey.jpg" class="rounded-circle m-2" style="width: 80px;"
+                 alt="Avatar" />
+            <div>
+                <h6>Koy Sophea</h6>
+                <h6 class="text-warning">@Koy Sophea</h6>
+            </div>
+        </div>
+        <div class="p-3">
+            <h6 class="">Full name</h6>
+            <a href="/" type="button" class="btn btn-primary ">Primary</a>
+        </div>
+        <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text bThis content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+
+<section xmlns:th="http://www.thymeleaf.org">
+    <!--card-action start-->
+    <div th:fragment="card-action(uuid,author,category,description,thumbnail)" class="card shadow-sm">
+        <img src="/img/default/relax.jpg" class="bd-placeholder-img card-img-top" alt="new Coffee">
+        <div class="m-2 d-flex align-items-center">
+            <img src="/img/default/monkey.jpg" class="rounded-circle m-2" style="width: 80px;"
+                 alt="Avatar" />
+            <div>
+                <h6>Koy Sophea</h6>
+                <h6 class="text-warning">@Koy Sophea</h6>
+            </div>
+        </div>
+        <div class="p-3">
+            <h6 class="">Full name</h6>
+            <a href="/" type="button" class="btn btn-primary ">Primary</a>
+        </div>
+        <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text bThis content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--card-action end-->
+
+    <!--card readonly start-->
+    <div th:fragment="card-readonly(uuid,author,category,description,thumbnail)" class="card shadow-sm">
+        <div class="card">
+            <img th:src="@{http://localhost:1010/files/{thumbnail}(thumbnail=${thumbnail})}" class="card-img-top" alt="Fissure in Sandstone"/>
+            <div class="card-body">
+                <h5 th:text="${fullName}" class="card-title">Card title</h5>
+                <p th:text="${description}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="/" class="btn btn-success m-1">View Profile</a>
+                <a href="/" class="btn btn-primary m-1">Edit Profile</a>
+                <a href="/" class="btn btn-danger m-1">Delete Profile</a>
+            </div>
+        </div>
+    </div>
+    <!--card readonly end-->
+
+    <!--Card All User-->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 m-3" th:fragment="card-AllUser">
+        <div class="col">
+            <div class="card shadow-sm">
+                <img th:src="@{/resources/img/default/monkey.jpg}" alt="" class="bd-placeholder-img card-img-top">
+                <div class="card-body">
+                    <h3>User</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img th:src="@{/resources/img/default/monkey.jpg}" alt="" class="bd-placeholder-img card-img-top">
+                <div class="card-body">
+                    <h3>User</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img th:src="@{/resources/img/default/monkey.jpg}" alt="" class="bd-placeholder-img card-img-top">
+                <div class="card-body">
+                    <h3>User</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img th:src="@{/resources/img/default/monkey.jpg}" alt="" class="bd-placeholder-img card-img-top">
+                <div class="card-body">
+                    <h3>User</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow-sm">
+                <img th:src="@{/resources/img/default/monkey.jpg}" alt="" class="bd-placeholder-img card-img-top">
+                <div class="card-body">
+                    <h3>User</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-primary">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Card All User-->
+</section>

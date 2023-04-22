@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layouts}">
+<head>
+    <title>Homepage</title>
+<!--Style-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<main layout:fragment="main-content">
+    <div class="album py-5 bg-light">
+        <div class="container" >
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-between  ">
+                <div class="col-6 flex-column" th:each="article : ${articles}" th:object="${article}" >
+                    <th:block th:replace="~{fragment/card :: card-action(*{uuid},*{author.fullName},*{description},*{thumbnail})}" ></th:block>
+                </div>
+                <div class="col-6">
+                    <div class=" justify-content-center float-end">
+                        <div class="card" style="width: 500px;">
+                            <img th:src="@{/resources/img/default/monkey.jpg}"
+                                 alt="News Coffee" class="bd-placeholder-img card-img-top">
+                            <div class="card-body">
+                                <h4>ResArticle</h4>
+                                <p class="card-text">Free Posting and sharing any article with insane freedom</p>
+                                <hr>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="list-group">
+                            <h2 >Popular Categories</h2>
+                            <div class="col" th:each="category :${categories}" th:object="${categories}">
+                                <a th:text="${category.categories}" href="" type="button" class="list-group-item list-group-item-action text-center mt-3 p-3 fw-bold"></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:replace="~{fragment/floatingButton}"></th:block>
+</main>
+</body>
+</html>

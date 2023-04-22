@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<!--meta data-->
+    <th:block th:replace="~{fragment/meta}"></th:block>
+<!--Title-->
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Sea Cambodia</title>
+
+    <!--Style-->
+    <th:block th:replace="~{fragment/style}"></th:block>
+
+</head>
+<body>
+<!--navbar start -->
+    <th:block th:replace="~{fragment/navbar}"></th:block>
+<!--navbar end-->
+
+    <main layout:fragment="main-content"></main>
+<!--footer start-->
+    <th:block th:replace="~{fragment/footer}"></th:block>
+<!--footer end-->
+
+<!--script-->
+    <th:block th:replace="~{fragment/script}"></th:block>
+
+    <th:block layout:fragment="subScript">
+
+    </th:block>
+</body>
+</html>
